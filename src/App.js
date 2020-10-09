@@ -1,13 +1,21 @@
+//dependencies
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from "axios";
+import styled from "styled-components";
+//constants
+import { getQueryString } from "./constants/index";
+// components
+import Character from "./components/Character";
+// style
 import './App.css';
 
-import axios from "axios";
-import { BASE_URL, ENDPOINTS, getQueryString } from "./constants/index";
+const StyledContainer = styled.div`
+	display: flex;
+	flex-flow: row wrap;
 
-import Character from "./components/Character";
-// console.log(BASE_URL, ENDPOINTS);
-
-// console.log(axios);
+`;
 
 const App = () => {
 	/**
@@ -16,7 +24,6 @@ const App = () => {
 	 */
 	const [data, setData] = useState({});
 	const [characters, setCharacters] = useState([]);
-
 
 	/**
 	 * Fetch characters from the API in an effect hook. Remember, anytime you have a
@@ -47,14 +54,23 @@ const App = () => {
 	return (
 		<div className="App">
 			<h1 className="Header">Characters</h1>
-			<ul>
+			{/* <ul>
 			{
 				characters.map(char => {
 					return <li key={char.id}><Character character={char} /></li> 
 				})
 			}
 
-			</ul>
+			</ul> */}
+			<StyledContainer>
+			{
+				characters.map(char => {
+					return <Character key={char.id} character={char} />
+				})
+			}
+			</StyledContainer>
+
+			
 		</div>
 	);
 }
