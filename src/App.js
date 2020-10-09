@@ -1,20 +1,21 @@
-//dependencies
+// DEPENDENCIES
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import styled from "styled-components";
-//constants
+
+// CONSTANTS
 import { getQueryString } from "./constants/index";
-// components
+
+// COMPONENTS
 import Character from "./components/Character";
-// style
+
+// STYLE
 import './App.css';
 
 const StyledContainer = styled.div`
 	display: flex;
 	flex-flow: row wrap;
-
 `;
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
 	 * Try to think through what state you'll need for this app before starting. Then build out
 	 * the state properties here.
 	 */
-	const [data, setData] = useState({});
+	// const [data, setData] = useState({});
 	const [characters, setCharacters] = useState([]);
 
 	/**
@@ -35,18 +36,18 @@ const App = () => {
 		const fetchCount = () => {
 			axios.get(queryString)
 				.then(res => {
-					console.log(res.data);
+					// console.log(res.data);
 					console.log(res.data.results);
-					setData(res.data);
+					// setData(res.data);
 					setCharacters(res.data.results);
 				})
 				.catch(err => {
-					console.log(err);
+					// console.log(err);
 					debugger;
 				});
 		};
 		if (queryString) {
-			console.log(queryString);
+			// console.log(queryString);
 			fetchCount();
 		}
 	}, []);
@@ -54,14 +55,6 @@ const App = () => {
 	return (
 		<div className="App">
 			<h1 className="Header">Characters</h1>
-			{/* <ul>
-			{
-				characters.map(char => {
-					return <li key={char.id}><Character character={char} /></li> 
-				})
-			}
-
-			</ul> */}
 			<StyledContainer>
 			{
 				characters.map(char => {
@@ -69,8 +62,6 @@ const App = () => {
 				})
 			}
 			</StyledContainer>
-
-			
 		</div>
 	);
 }

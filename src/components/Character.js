@@ -4,8 +4,6 @@ import styled from "styled-components";
 import Details from "./Details";
 import { Collapse } from "reactstrap";
 
-// import axios from "axios";
-
 const StyledCharacter = styled.div`
 	display: flex;
 	flex-flow: column nowrap;

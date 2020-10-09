@@ -5,6 +5,8 @@ import Dropdown from "react-bootstrap/Dropdown";
 const StyledDetails = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: center;
 	#dropdown-episodes {
 		display: inline-block;
 		width: 100%;
@@ -15,14 +17,15 @@ const StyledDetails = styled.div`
 `;
 
 const Details = (props) => {
-	const {character} = props;
-	const { created, episode, gender, id, image, location, name, origin, species, status, type, url } = character;
+	const { character } = props;
+	const { episode, gender, location, name, origin, species, status, url } = character;
 
 	return (
 		<StyledDetails>
 			<h4>Name: {name}</h4>
 			<p>Status: {status}</p>
 			<p>Species: {species}</p>
+			<p>Gender: {gender}</p>
 			<p>Origin: {origin.name}</p>
 			<p>Location: {location.name}</p>
 			<Dropdown>
