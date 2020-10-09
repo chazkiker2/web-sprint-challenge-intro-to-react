@@ -30,7 +30,7 @@ const StyledCharacter = styled.div`
 const Character = (props) => {
 	const [showDetails, setShowDetails] = useState(false);
 	const { character } = props;
-	const { created, episode, gender, id, image, location, name, origin, species, status, type, url } = character;
+	const { image, name } = character;
 	
 	const toggle = () => { setShowDetails(!showDetails) };
 
